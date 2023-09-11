@@ -47,10 +47,10 @@ type Record = {
 }
 
 export const App = () => {
-  const [creditAmount, setCreditAmount] = useState(500000);
-  const [margin, setMargin] = useState(3);
-  const [interestRate, setInterestRate] = useState(7);
-  const [numberOfInstallments, setNumberOfInstallments] = useState(360);
+  const [creditAmount, setCreditAmount] = useState(0);
+  const [margin, setMargin] = useState(0);
+  const [interestRate, setInterestRate] = useState(0);
+  const [numberOfInstallments, setNumberOfInstallments] = useState(0);
   const [monthlyAmount, setMonthlyAmount] = useState(0);
   
   const [totalInterestRate, setTotalInterestRate] = useState(0)
@@ -126,7 +126,7 @@ export const App = () => {
             <FormControl>
               <FormLabel>Jaką kwotę kredytu chcesz spłacić?</FormLabel>
               <InputGroup>
-                <Input placeholder='Wprowadź kwotę kredytu' value={creditAmount} type="number" onChange={event => setCreditAmount(Number(event.currentTarget.value))}/>
+                <Input placeholder='Wprowadź kwotę kredytu' /*value={creditAmount}*/type="number" onChange={event => setCreditAmount(Number(event.currentTarget.value))}/>
                 <InputRightElement
                     pointerEvents='none'
                     color='gray.300'
@@ -139,7 +139,7 @@ export const App = () => {
               <FormControl>
                 <FormLabel>Marża banku</FormLabel>
                 <InputGroup>
-                  <Input placeholder='...' value={margin} type="number" onChange={event => setMargin(Number(event.currentTarget.value))}/>
+                  <Input placeholder='...' /*value={margin}*/ type="number" onChange={event => setMargin(Number(event.currentTarget.value))}/>
                   <InputRightElement
                       pointerEvents='none'
                       color='gray.300'
@@ -151,7 +151,7 @@ export const App = () => {
               <FormControl>
                 <FormLabel>WIBOR</FormLabel>
                 <InputGroup>
-                  <Input placeholder='...' value={interestRate} type="number" onChange={event => setInterestRate(Number(event.currentTarget.value))}/>
+                  <Input placeholder='...' /*value={interestRate}*/ type="number" onChange={event => setInterestRate(Number(event.currentTarget.value))}/>
                   <InputRightElement
                       pointerEvents='none'
                       color='gray.300'
@@ -170,7 +170,7 @@ export const App = () => {
             <FormControl>
               <FormLabel>Ile rat pozostało do końca kredytu?</FormLabel>
               <InputGroup>
-                <Input placeholder='Wprowadź liczbę rat' value={numberOfInstallments} type="number" onChange={event => setNumberOfInstallments(Number(event.currentTarget.value))}/>
+                <Input placeholder='Wprowadź liczbę rat' /*value={numberOfInstallments}*/ type="number" onChange={event => setNumberOfInstallments(Number(event.currentTarget.value))}/>
               </InputGroup>
             </FormControl>
             {baseInstallment > 0 && baseInstallment < Infinity ?
@@ -182,7 +182,7 @@ export const App = () => {
             <FormControl>
               <FormLabel>Jaką kwotę miesięcznie chcesz płacić?</FormLabel>
               <InputGroup>
-                <Input placeholder='Wprowadź łączną kwotę' value={monthlyAmount} type="number" onChange={event => setMonthlyAmount(Number(event.currentTarget.value))}/>
+                <Input placeholder='Wprowadź łączną kwotę' /*value={monthlyAmount} */type="number" onChange={event => setMonthlyAmount(Number(event.currentTarget.value))}/>
                 <InputRightElement
                     pointerEvents='none'
                     color='gray.300'
@@ -228,7 +228,7 @@ export const App = () => {
               </TableContainer>
               </VStack>
             }
-            { matrix.length == 0 ? <></> : 
+            { matrix.length <= 1 ? <></> : 
               <VStack>
               <Text>Obliczenia Rat</Text>
               <TableContainer maxWidth="95vw">
