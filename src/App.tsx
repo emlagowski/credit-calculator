@@ -121,7 +121,7 @@ export const App = () => {
       <Box textAlign="center" fontSize="xl">
         <Grid p={3}>
           <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={4} justifySelf="flex-start">
+          <VStack spacing={4} justifySelf="center">
             <Heading>Mortgage Slayer</Heading>
             <FormControl>
               <FormLabel>Jaką kwotę kredytu chcesz spłacić?</FormLabel>
